@@ -1,0 +1,32 @@
+@echo off
+set stueckzahl=0
+:menu
+cls
+echo.
+echo Definierte Stueckzahl: %stueckzahl%
+echo.
+echo [1]Stueckzahl definieren
+echo [3]Buchungsscript in dauerschleife
+echo.
+echo [0]Script beenden
+echo.
+set /p eingabe="Eingabe: "
+if /i "%eingabe%"=="1" goto Stueckzahl
+if /i "%eingabe%"=="3" goto dauerschleife
+if /i "%eingabe%"=="0" goto Fertig
+echo Falsche Eingabe...
+goto menu
+:Stueckzahl
+set /p stueckzahl="Stueckzahl eingeben:" 
+goto menu
+:dauerschleife
+echo Definierte Stueckzahl: %stueckzahl%
+echo. 
+set /p LE="LE eingeben oder 0 fuer Menue:"
+if /i "%LE%"=="0" goto menu 
+echo %LE% | clip
+echo Gebuchte LE: %LE% 
+::LE Macro start
+goto dauerschleife
+:Fertig
+exit
